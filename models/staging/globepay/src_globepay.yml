@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: staging_globepay
+    description: desc
+    database: RAW_PROD
+
+    tables:
+      - name: acceptance_report
+        description: '{{ doc("stg_globepay__acceptance_report") }}'
+      - name: chargeback_report
+        description: '{{ doc("stg_globepay__chargeback_report") }}'

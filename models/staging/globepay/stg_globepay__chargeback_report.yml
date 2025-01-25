@@ -1,0 +1,11 @@
+models:
+  - name: stg_globepay__chargeback_report
+    description: '{{ doc("stg_globepay__chargeback_report") }}'
+
+    columns:
+      - name: globepay_transaction_id
+        description: '{{ doc("stg_globepay__chargeback_report__globepay_transaction_id") }}'
+        data_tests:
+          - dbt_constraints.primary_key
+      - name: is_chargeback
+        description: '{{ doc("stg_globepay__chargeback_report__is_chargeback") }}'

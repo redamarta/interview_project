@@ -1,0 +1,29 @@
+models:
+  - name: stg_globepay__acceptance_report
+    description: '{{ doc("stg_globepay__acceptance_report") }}'
+
+    columns:
+      - name: transaction_id
+        description: '{{ doc("stg_globepay__acceptance_report__transaction_id") }}'
+        data_tests:
+          - dbt_constraints.primary_key
+      - name: globepay_transaction_id
+        description: The external order number.
+      - name: state
+        description: '{{ doc("stg_globepay__acceptance_report__state") }}'
+        data_tests:
+          - accepted_values:
+              values:
+                ["ACCEPTED", "DECLINED"]
+      - name: is_cvc_provided
+        description: '{{ doc("stg_globepay__acceptance_report__is_cvc_provided") }}'
+      - name: amount
+        description: '{{ doc("stg_globepay__acceptance_report__amount") }}'
+      - name: transaction_at
+        description: '{{ doc("stg_globepay__acceptance_report__transaction_at") }}'
+      - name: country_code
+        description: '{{ doc("stg_globepay__acceptance_report__country_code") }}'
+      - name: currency
+        description: '{{ doc("stg_globepay__acceptance_report__currency") }}'
+      - name: exchange_rate
+        description: '{{ doc("stg_globepay__acceptance_report__exchange_rate") }}'
