@@ -2,7 +2,9 @@ version: 2
 
 sources:
   - name: staging_globepay
-    description: desc
+    description: >
+      Globepay is single and secure payment platform that lets you collect payments quickly from around the world in different currencies.
+      It works across devices and is designed to increase your conversion.
     database: RAW_PROD
 
     tables:

@@ -8,7 +8,11 @@ models:
         data_tests:
           - dbt_constraints.primary_key
       - name: globepay_transaction_id
-        description: The external order number.
+        description: '{{ doc("stg_globepay__chargeback_report__globepay_transaction_id") }}'
+        data_tests:
+          - dbt_constraints.foreign_key:
+              pk_table_name: ref('stg_globepay__chargeback_report')
+              pk_column_name: globepay_transaction_id
       - name: state
         description: '{{ doc("stg_globepay__acceptance_report__state") }}'
         data_tests:
@@ -19,6 +23,10 @@ models:
         description: '{{ doc("stg_globepay__acceptance_report__is_cvc_provided") }}'
       - name: amount
         description: '{{ doc("stg_globepay__acceptance_report__amount") }}'
+        data_tests:
+          - dbt_utils.expression_is_true:
+              severity: warn
+              expression: "> 0"
       - name: transaction_at
         description: '{{ doc("stg_globepay__acceptance_report__transaction_at") }}'
       - name: country_code
@@ -27,3 +35,5 @@ models:
         description: '{{ doc("stg_globepay__acceptance_report__currency") }}'
       - name: exchange_rate
         description: '{{ doc("stg_globepay__acceptance_report__exchange_rate") }}'
+        data_tests:
+            - not_null

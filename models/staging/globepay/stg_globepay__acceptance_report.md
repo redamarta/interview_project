@@ -7,7 +7,7 @@ The order number.
 {% enddocs %}
 
 {% docs stg_globepay__acceptance_report__state %}
-The binary state of the transaction: Accepted or Declined.
+The binary state of the transaction: ACCEPTED or DECLINED.
 {% enddocs %}
 
 {% docs stg_globepay__acceptance_report__is_cvc_provided %}
@@ -15,7 +15,7 @@ Indicates whether the ard verification value was provided.
 {% enddocs %}
 
 {% docs stg_globepay__acceptance_report__amount %}
-The amount that has been charged from the card.
+The amount that has been charged from the card, in given currency.
 {% enddocs %}
 
 {% docs stg_globepay__acceptance_report__transaction_at %}
